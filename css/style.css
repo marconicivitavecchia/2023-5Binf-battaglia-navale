@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap');
 
 body{
-  background-image: url("../Assets/sfondo.png");
+  background-image: url("../assets/sfondo.png");
   background-size: 100%;
   background-position: center center;
   background-attachment: fixed;
