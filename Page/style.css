@@ -1,0 +1,1399 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap');
+
+body{
+  background-image: url("sfondo.png");
+  background-size: 100%;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.upperPart{
+  display: grid;
+}
+
+/*Timer start*/
+.timer-container{
+  width: 100px;
+  height: 60px;
+  position: relative;
+  background-color: #0086b8;
+  margin: auto 0;
+  border: #001365 solid 2px;
+  border-radius: 40%;
+  box-shadow: 2px 8px 12px black;
+  z-index: -4;
+
+  -webkit-animation-duration: 1.4s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes expiring-timer {
+  0% {background-color: #0086b8;   border: #001365 solid 2px;}
+  50% {-webkit-transform:scale(80%);}
+  80% {-webkit-transform:scale(110%);}
+  100% {background-color: #b6190e; border: 2px solid  #530c07}
+}
+
+@keyframes expired-timer {
+  0% {background-color: #520606;   border: #290202 solid 2px;}
+  100% {background-color: #b6190e; border: 2px solid  #530c07}
+}
+
+#time{
+  color: white;
+  text-align: center;
+  font-family: 'Bebas Neue', cursive;
+  text-shadow: 2px 2px #02187c;
+  font-size: 1.8rem;
+  margin: 14px auto;
+
+  user-select: none;
+  -moz-window-dragging: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+
+  -webkit-animation-duration: 1.4s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes expiring-time-text {
+  0% {text-shadow: 2px 2px #02187c;}
+  100% {text-shadow: 2px 2px #530c07}
+}
+
+@keyframes expired-time-text {
+  0% {text-shadow: 2px 2px #530c07}
+  100% {text-shadow: 2px 2px #290202}
+}
+/*Timer end*/
+/*Menu start*/
+.menu{
+  display: inline-block;
+}
+
+.bar1, .bar2, .bar3{
+  width: 80px;
+  height: 8px;
+  background-color: #0086b8;
+  border: 2px solid #02187c;
+  margin: 8px 0;
+  transition: 0.4s;
+  box-shadow: 5px 10px 8px;
+  cursor: pointer;
+}
+
+.changeBar1{
+  position: relative;
+  z-index: 2;
+  -webkit-transform: rotate(-45deg) translate(-20%, 120%);
+  box-shadow: 5px 10px 8px;
+}
+
+.changeBar2{
+  position: relative;
+  background-color: #000000;
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+  -webkit-transform: rotate(45deg) translate(8%, -30%);
+  box-shadow: none;
+  z-index: 1;
+}
+
+.changeBar3{
+  position: relative;
+  z-index: 2;
+  -webkit-transform: rotate(45deg) translate(-18%, -80%);
+  box-shadow: none;
+}
+
+.lateralNavs{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  opacity: 0.6;
+  z-index: -2;
+}
+
+.changeLateralNavs{
+  -webkit-animation-name: lateralNavsChange;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.changeLateralNavsReverse{
+  -webkit-animation-name: lateralNavsChangeReverse;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes lateralNavsChange{
+  0% {left:0; top:0;}
+  50% {opacity: 0;}
+  100% {opacity: 0; z-index: -5;}
+}
+
+@keyframes lateralNavsChangeReverse{
+  0% {opacity: 0;}
+  50% {opacity: 0.6;}
+  100% {left:0; top:0; z-index: -2;}
+}
+
+.lateralNavSX{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30%;
+  background: rgb(27,95,128);
+  background: linear-gradient(0deg, rgba(27,95,128,1) 0%, rgba(0,134,184,1) 30%, rgba(30,107,136,1) 70%, rgba(15,86,121,1) 100%);
+  border-right: 6px solid #101549;
+  opacity: 1;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: repeat(1fr 5);
+}
+
+.lateralNavDX{
+  position: absolute;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 30%;
+  background: rgb(27,95,128);
+  background: linear-gradient(0deg, rgba(27,95,128,1) 0%, rgba(0,134,184,1) 30%, rgba(30,107,136,1) 70%, rgba(15,86,121,1) 100%);
+  border-left: 6px solid #101549;
+  opacity: 1;
+  z-index: -1;
+}
+
+.changeLateralNavSX{
+  -webkit-animation-name: lateralNavSXChange;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+  z-index: -1;
+}
+
+.changeLateralNavDX{
+  -webkit-animation-name: lateralNavDXChange;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.changeLateralNavSXReverse{
+  -webkit-animation-name: lateralNavSXChangeReverse;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.changeLateralNavDXReverse{
+  -webkit-animation-name: lateralNavDXChangeReverse;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes lateralNavSXChange{
+  0% {left:0; top:0;}
+  100% {left: -100%; top:0;}
+}
+
+@keyframes lateralNavDXChange{
+  0% {right:0; top:0;}
+  100% {right: -100%; top:0;}
+}
+
+@keyframes lateralNavSXChangeReverse{
+  0% {left: -100%; top:0;}
+  100% {left:0; top:0;}
+}
+
+@keyframes lateralNavDXChangeReverse{
+  0% {right: -100%; top:0;}
+  100% {right:0; top:0;}
+}
+
+.menuText{
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  color: white;
+  padding: 18px;
+  height: fit-content;
+  font-family: 'Bebas Neue', cursive;
+  text-align: center;
+  letter-spacing: .1rem;
+  font-size: 2.4rem;
+  text-shadow: 4px 4px #02187c;
+  cursor: pointer;
+  opacity: 1;
+
+  user-select: none;
+  -moz-window-dragging: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.menuText:hover{
+    -webkit-animation: shadow-pop-br 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+            animation: shadow-pop-br 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+    border: #101549 2px solid;
+}
+
+@-webkit-keyframes shadow-pop-br {
+  0% {
+    -webkit-box-shadow: 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549;
+            box-shadow: 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549;
+    -webkit-transform: translateX(0) translateY(0);
+            transform: translateX(0) translateY(0);
+  }
+  100% {
+    -webkit-box-shadow: 1px 1px #101549, 2px 2px #101549, 3px 3px #101549, 4px 4px #101549, 5px 5px #101549, 6px 6px #101549, 7px 7px #101549, 8px 8px #101549;
+            box-shadow: 1px 1px #101549, 2px 2px #101549, 3px 3px #101549, 4px 4px #101549, 5px 5px #101549, 6px 6px #101549, 7px 7px #101549, 8px 8px #101549;
+    -webkit-transform: translateX(-8px) translateY(-8px);
+            transform: translateX(-8px) translateY(-8px);
+  }
+}
+@keyframes shadow-pop-br {
+  0% {
+    -webkit-box-shadow: 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549;
+            box-shadow: 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549, 0 0 #101549;
+    -webkit-transform: translateX(0) translateY(0);
+            transform: translateX(0) translateY(0);
+  }
+  100% {
+    -webkit-box-shadow: 1px 1px #101549, 2px 2px #101549, 3px 3px #101549, 4px 4px #101549, 5px 5px #101549, 6px 6px #101549, 7px 7px #101549, 8px 8px #101549;
+            box-shadow: 1px 1px #101549, 2px 2px #101549, 3px 3px #101549, 4px 4px #101549, 5px 5px #101549, 6px 6px #101549, 7px 7px #101549, 8px 8px #101549;
+    -webkit-transform: translateX(-8px) translateY(-8px);
+            transform: translateX(-8px) translateY(-8px);
+  }
+}
+
+#firstMenuTextSX{
+  margin-top: 25%;
+}
+
+#firstMenuTextDX{
+  opacity: 1;
+  margin-top: 5%;
+  border-bottom: 5px solid #101549;
+}
+
+#history{
+  font-family: 'Martian Mono', monospace;
+  font-size: 1.2rem;
+  text-shadow: 4px 4px #00000036;
+  opacity: 1;
+}
+
+/*Menu end*/
+
+.playOption{
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  position: absolute;
+  background: rgb(27,95,128);
+  background: linear-gradient(0deg, rgba(27,95,128,1) 0%, rgba(0,134,184,1) 30%, rgba(30,107,136,1) 70%, rgba(15,86,121,1) 100%);
+  border: 3px solid #02187c;
+  border-radius: 12px;
+  color: white;
+  z-index: 4;
+  top: 24svh;
+  left: -140svw;
+  height: fit-content;
+  width: 70svw;
+  gap: 4px;
+  box-shadow: 2px 8px 12px black;
+
+  -webkit-animation-duration: 1.6s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-direction: normal;
+  -webkit-animation-timing-function: cubic-bezier(1,0.80,0.50,1);
+  -webkit-animation-iteration-count: 1;
+}
+
+@keyframes playOptionIN{
+0% {left: -100svw; top:24svh}
+100% {left: 14.7svw; top:24svh}
+}
+
+@keyframes playOptionOUT{
+  0% {left: 14.7svw; top:24svh}
+  100% {left: -100svw; top:24svh}
+  }
+
+
+
+.nameHelp{
+  position:relative;
+  display: block;
+  margin: 0 auto;
+  color: white;
+  padding: 8px 24px;
+  font-family: 'Bebas Neue', cursive;
+  text-align: center;
+  letter-spacing: .1rem;
+  font-size: 3rem;
+  text-shadow: 3px 3px #02187c;
+  z-index: 4;
+  user-select: none;
+
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.userName{
+  position:relative;
+  display: block;
+  margin: 0 auto;
+  background-color: #02187c; 
+  border: 3px solid #02187c;
+  border-radius: 12px;
+  color: white;
+  font-family: 'Bebas Neue', cursive;
+  text-align: center;
+  letter-spacing: .1rem;
+  font-size: 2rem;
+  box-shadow: 2px 2px 12px black;
+  cursor: text;
+  width: 100%;
+  height: 80%;
+
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.rememberUserName {
+  position: relative;
+  left: 16%;
+  top: 23%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: block;
+  z-index: 1;
+
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+.remember{
+  position:relative;
+  color: white;
+  font-family: 'Bebas Neue', cursive;
+  text-align: center;
+  letter-spacing: .1rem;
+  font-size: 2rem;
+  text-shadow: 3px 3px #02187c;
+  user-select: none;
+
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+.confirmName {
+  display: inline-block;
+  position:relative;
+  margin: 0 auto;
+  background-color: #0086b8; 
+  border: 3px solid #02187c;
+  border-radius: 12px;
+  height: 80%;
+  width: 80%;
+  color: white;
+  font-family: 'Bebas Neue', cursive;
+  text-align: center;
+  letter-spacing: .1rem;
+  font-size: 2rem;
+  text-shadow: 2px 2px #02187c;
+  cursor: pointer;
+
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+.confirmName:hover{
+  -webkit-animation-name: confirmButton;
+  -webkit-animation-duration: 400ms;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-direction: normal;
+	-webkit-animation-iteration-count: 1;
+}
+
+@keyframes confirmButton {
+  0% {background-color: #0086b8; border: 3px solid #02187c; text-shadow: 2px 2px #02187c;}
+  50% {-webkit-transform:rotate(5deg);}
+  80% {-webkit-transform:rotate(-5deg);}
+  100% {background-color: #0b9b6b; border: 3px solid #065c31; text-shadow: 2px 2px #065c31;}
+}
+
+.my-nickname{
+ position: absolute;
+ top: 75vh;
+ left: 10%;
+ width: 30%;
+ height: 12%;
+ transform: skew(-20deg);
+ background: #0086b8;
+ border: #001365 solid 3px;
+ border-radius: 18px;
+ text-shadow: 3px 3px #02187c;
+ box-shadow: 2px 8px 12px black;
+ color: white;
+ font-family: 'Bebas Neue', cursive;
+ text-align: center;
+ letter-spacing: .1rem;
+ font-size: 3rem;
+ z-index: -4;
+
+ user-select: none;
+ -moz-window-dragging: none;
+ -webkit-user-drag: none;
+ -webkit-touch-callout: none;
+ -webkit-user-select: none;
+ -khtml-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+ pointer-events: none;
+}
+
+.opponent-nickname{
+  position: absolute;
+  top: 75vh;
+  right: 10%;
+  width: 30%;
+  height: 12%;
+  transform: skew(20deg);
+  background: #b6190e;
+  border: #530c07 solid 3px;
+  border-radius: 18px;
+  text-shadow: 2px 2px #530c07;
+  box-shadow: 2px 8px 12px black;
+  color: white;
+  font-family: 'Bebas Neue', cursive;
+  text-align: center;
+  letter-spacing: .1rem;
+  font-size: 3rem;
+  z-index: -4;
+
+  user-select: none;
+  -moz-window-dragging: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+ }
+
+.boards-container {
+  position: relative;
+  top: -10%;
+  display:flex;
+  justify-content: space-around;
+}
+
+.palm-container{
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  left: 0;
+  top: 66%;
+  margin: 0;
+  z-index: -4;
+
+  user-select: none;
+  -moz-window-dragging: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+
+.palm{
+  width: 214px;
+  height: 214px;
+}
+
+#allyPlane{
+  width: 128px;
+	height: 128px;
+	left: -30%; 
+	top: 20%;
+	position: absolute;
+
+  user-select: none;
+  -moz-window-dragging: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+
+.bluePlane{
+	width: 128px;
+	height: 128px;
+	left: -30%; 
+	top: 20%;
+	position: absolute;
+  z-index: 3;
+
+	-webkit-transform:rotate(90deg);
+  -webkit-animation-name: moveBluePlane;
+  -webkit-animation-duration: 40s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-direction: normal;
+	-webkit-animation-timing-function: cubic-bezier(1,0.80,0.22,1);
+	-webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: 12s;
+
+  user-select: none;
+  -moz-window-dragging: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+@keyframes moveBluePlane{
+  0% {left: -30%; top:20%}
+  54% {left: -30%; top:20%}
+  100% {left: 120%; top:24%}
+}
+
+#opponentPlane{
+	width: 128px;
+	height: 128px;
+	right: -30%; 
+	top: 50%;
+	position: absolute;
+
+  user-select: none;
+  -moz-window-dragging: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+
+.redPlane{
+	width: 128px;
+	height: 128px;
+	right: -30%; 
+	top: 50%;
+	position: absolute;
+  z-index: 3;
+
+	-webkit-transform:rotate(-90deg);
+  -webkit-animation-name: moveRedPlane;
+  -webkit-animation-duration: 38s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-direction: normal;
+	-webkit-animation-timing-function: cubic-bezier(1,0.80,0.22,1);
+	-webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: 6s;
+
+  user-select: none;
+  -moz-window-dragging: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+@keyframes moveRedPlane{
+  0% {right: -30%; top:50%;}
+  60% {right: -30%; top:50%;}
+  100% {right: 120%; top:42%}
+}
+
+#reset {
+  position: absolute;
+  display: block;
+  margin: 0 auto;
+  background-color: #0086b8; 
+  border: 3px solid #02187c;
+  border-radius: 12px;
+  color: white;
+  padding: 8px 24px;
+  font-family: 'Bebas Neue', cursive;
+  text-align: center;
+  letter-spacing: .1rem;
+  font-size: 1.4rem;
+  text-shadow: 2px 2px #02187c;
+  box-shadow: 2px 8px 12px black;
+  cursor: pointer;
+  z-index: -3;
+  top: 80%;
+
+  user-select: none;
+  -moz-window-dragging: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.grid-container {
+    position: relative;
+    z-index: -3;
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+    width: 35%;
+    gap: 1px;
+    box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.322);
+}
+
+@keyframes grid-containerUp{
+  0% {opacity: 1; z-index: -3;}
+  100% {opacity: 1; z-index: 0;}
+}
+
+@keyframes grid-containerDown{
+  0% {opacity: 1; z-index: 0;}
+  100% {opacity: 1; z-index: -3;}
+}
+
+.grid-item {
+    aspect-ratio: 1;
+    z-index: 4;
+}
+
+
+
+/* My board */
+#my-board>.grid-item.my-ship {
+  background-color: #001365;
+}
+
+#my-board>.grid-item {
+    background-color: #0086b8;
+}
+
+#my-board {
+    background-color: #02187c;
+    border: 3px solid #02187c;
+    position: relative;
+    left: 3%;
+}
+
+
+
+/* Opponent board */
+#opponent-board>.grid-item.missed {
+    background-color: #005388;
+}
+
+#opponent-board>.grid-item.hit {
+  background-color: #b6190e;
+}
+
+#opponent-board>.grid-item.destroy {
+  background-color: #F69907;
+}
+
+#opponent-board>.grid-item {
+    background-color: #0086b8;
+}
+
+#opponent-board {
+    background-color: #02187c;
+    border: 3px solid #02187c;
+    position: relative;
+    right: 3%;
+}
+
+#logo{
+  display: block;
+  margin: -3% auto;
+  width: 11%;
+  z-index: 2;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.indicator{
+  background-color: #1e6b88;
+  color: white;
+  font-family: 'Bebas Neue', cursive;
+  text-align: center;
+  font-size: 1.4rem;
+  text-shadow: 2px 2px #02187c;
+
+  user-select: none;
+  -moz-window-dragging: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+
+
+
+
+
+
+@media (max-width: 1000px) {
+
+  .boards-container {
+    flex-direction: column;
+  }
+  
+  .grid-container {
+    width: 700px;
+  }
+  
+  /*Timer start*/
+  .timer-container{
+    width: 200px;
+    height: 120px;
+    position: relative;
+    background-color: #0086b8;
+    margin-top: 10%;
+    margin-bottom: -8%;
+    left: 39.5%;
+    border: #001365 solid 2px;
+    border-radius: 40%;
+    box-shadow: 2px 8px 12px black;
+    z-index: -4;
+  
+    -webkit-animation-duration: 1.4s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-iteration-count: infinite;
+  }
+  
+  @keyframes expiring-timer {
+    0% {background-color: #0086b8;   border: #001365 solid 2px;}
+    50% {-webkit-transform:scale(80%);}
+    80% {-webkit-transform:scale(110%);}
+    100% {background-color: #b6190e; border: 2px solid  #530c07}
+  }
+  
+  @keyframes expired-timer {
+    0% {background-color: #520606;   border: #290202 solid 2px;}
+    100% {background-color: #b6190e; border: 2px solid  #530c07}
+  }
+  
+  #time{
+    color: white;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    text-shadow: 2px 2px #02187c;
+    font-size: 4.8rem;
+    margin: 14px auto;
+  
+    user-select: none;
+    -moz-window-dragging: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+  
+    -webkit-animation-duration: 1.4s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-iteration-count: infinite;
+  }
+  
+  @keyframes expiring-time-text {
+    0% {text-shadow: 2px 2px #02187c;}
+    100% {text-shadow: 2px 2px #530c07}
+  }
+  
+  @keyframes expired-time-text {
+    0% {text-shadow: 2px 2px #530c07}
+    100% {text-shadow: 2px 2px #290202}
+  }
+  /*Timer end*/
+  /*Menu start*/
+  .menu{
+    display: block;
+  }
+  
+  .bar1, .bar2, .bar3{
+    width: 180px;
+    height: 18px;
+    background-color: #0086b8;
+    border: 2px solid #02187c;
+    margin: 18px 0;
+    transition: 0.4s;
+    box-shadow: 5px 10px 8px;
+    cursor: pointer;
+  }
+  
+  .changeBar1{
+    position: relative;
+    z-index: 2;
+    -webkit-transform: rotate(-45deg) translate(-30%, 360%);
+    box-shadow: 5px 10px 8px;
+  }
+  
+  .changeBar2{
+    position: relative;
+    background-color: #000000;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    -webkit-transform: rotate(45deg) translate(34%, 60%);
+    box-shadow: none;
+    z-index: 1;
+  }
+  
+  .changeBar3{
+    position: relative;
+    z-index: 2;
+    -webkit-transform: rotate(45deg) translate(14%, -20%);
+    box-shadow: none;
+  }
+  
+  .lateralNavs{
+    display: none;
+  }
+  
+  .changeLateralNavs{
+    display: none;
+  }
+  
+  .changeLateralNavsReverse{
+    display: none;
+  }
+
+  .lateralNavDX{
+    display: none;
+  }
+  
+  .changeLateralNavDX{
+    display: none;
+  }
+  
+  .changeLateralNavDXReverse{
+    display: none;
+  }
+  
+  .lateralNavSX{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0px;
+    height: 100%;
+    width: 99%;
+    background: rgb(27,95,128);
+    background: linear-gradient(0deg, rgba(27,95,128,1) 0%, rgba(0,134,184,1) 30%, rgba(30,107,136,1) 70%, rgba(15,86,121,1) 100%);
+    border: 6px solid #101549;
+    opacity: 1;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: repeat(1fr 5);
+  }
+
+  
+  .changeLateralNavSX{
+    -webkit-animation-name: lateralNavSXChange;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-fill-mode: forwards;
+    z-index: -1;
+  }
+  
+  .changeLateralNavSXReverse{
+    -webkit-animation-name: lateralNavSXChangeReverse;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-fill-mode: forwards;
+  }
+  
+  
+  @keyframes lateralNavSXChange{
+    0% {left:0; top:0;}
+    100% {left: -135%; top:0;}
+  }
+  
+  @keyframes lateralNavSXChangeReverse{
+    0% {left: -135%; top:0;}
+    100% {left:0; top:0;}
+  }
+  
+  .menuText{
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    color: white;
+    padding: 18px;
+    height: fit-content;
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    letter-spacing: .1rem;
+    font-size: 4.4rem;
+    text-shadow: 6px 6px #02187c;
+    cursor: pointer;
+    opacity: 1;
+  
+    user-select: none;
+    -moz-window-dragging: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  #firstMenuTextSX{
+    margin-top: 15%;
+  }
+  
+  /*Menu end*/
+  
+  .playOption{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    position: absolute;
+    background: rgb(27,95,128);
+    background: linear-gradient(0deg, rgba(27,95,128,1) 0%, rgba(0,134,184,1) 30%, rgba(30,107,136,1) 70%, rgba(15,86,121,1) 100%);
+    border: 4px solid #02187c;
+    border-radius: 12px;
+    color: white;
+    z-index: 4;
+    top: 24svh;
+    left: -140svw;
+    max-height: 50svw;
+    width: 90svw;
+    gap: 4px;
+    box-shadow: 2px 8px 12px black;
+  
+    -webkit-animation-duration: 1.6s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-direction: normal;
+    -webkit-animation-timing-function: cubic-bezier(1,0.80,0.50,1);
+    -webkit-animation-iteration-count: 1;
+  }
+  
+  @keyframes playOptionIN{
+  0% {left: -100svw; top:18svh}
+  100% {left: 4.7svw; top:18svh}
+  }
+  
+  @keyframes playOptionOUT{
+    0% {left: 4.7svw; top:18svh}
+    100% {left: -100svw; top:18svh}
+  }
+  
+  .nameHelp{
+    position:relative;
+    display: block;
+    margin: auto 20%;
+    text-align: center;
+    color: white;
+    padding: 8px 24px;
+    width: 100%;
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    letter-spacing: .1rem;
+    font-size: 4.4rem;
+    text-shadow: 6px 6px #02187c;
+    z-index: 4;
+    user-select: none;
+  
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  
+  .userName{
+    position:relative;
+    display: block;
+    margin: 0 auto;
+    background-color: #02187c; 
+    border: 3px solid #02187c;
+    border-radius: 12px;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    letter-spacing: .1rem;
+    font-size: 4.4rem;
+    box-shadow: 2px 2px 12px black;
+    cursor: text;
+    width: 100%;
+    height: 80%;
+  
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
+  
+  .rememberUserName {
+    position: relative;
+    left: 10%;
+    top: 40%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: block;
+    z-index: 1;
+  
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
+  }
+  
+  .remember{
+    margin-top: 0;
+    position:relative;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    letter-spacing: .1rem;
+    font-size: 4.4rem;
+    text-shadow: 6px 6px #02187c;
+    user-select: none;
+  
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
+  }
+  
+  .confirmName {
+    display: inline-block;
+    position:relative;
+    margin: 0 auto;
+    background-color: #0086b8; 
+    border: 4px solid #02187c;
+    border-radius: 12px;
+    height: 70%;
+    width: 94%;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    letter-spacing: .1rem;
+    font-size: 4.4rem;
+    text-shadow: 6px 6px #02187c;
+    cursor: pointer;
+  
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 3;
+  }
+  
+  .confirmName:hover{
+    -webkit-animation-name: confirmButton;
+    -webkit-animation-duration: 400ms;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-direction: normal;
+    -webkit-animation-iteration-count: 1;
+  }
+  
+  @keyframes confirmButton {
+    0% {background-color: #0086b8; border: 3px solid #02187c; text-shadow: 2px 2px #02187c;}
+    50% {-webkit-transform:rotate(5deg);}
+    80% {-webkit-transform:rotate(-5deg);}
+    100% {background-color: #0b9b6b; border: 3px solid #065c31; text-shadow: 2px 2px #065c31;}
+  }
+  
+  .my-nickname{
+   position: absolute;
+   top: 22%;
+   left: 64%;
+   width: 38%;
+   height: 10%;
+   -webkit-transform: rotate(90deg);
+   background: #0086b8;
+   border: #001365 solid 3px;
+   border-radius: 18px;
+   text-shadow: 3px 3px #02187c;
+   box-shadow: 2px 8px 12px black;
+   color: white;
+   font-family: 'Bebas Neue', cursive;
+   text-align: center center;
+   letter-spacing: .1rem;
+   font-size: 4rem;
+   writing-mode: sideways-lr;
+   z-index: -4;
+  
+   user-select: none;
+   -moz-window-dragging: none;
+   -webkit-user-drag: none;
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   pointer-events: none;
+  }
+  
+  .opponent-nickname{
+    position: absolute;
+    top: 74%;
+    left: 64%;
+    width: 38%;
+    height: 10%;
+    transform: rotate(90deg);
+    background: #b6190e;
+    border: #530c07 solid 3px;
+    border-radius: 18px;
+    text-shadow: 2px 2px #530c07;
+    box-shadow: 2px 8px 12px black;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    letter-spacing: .1rem;
+    font-size: 4rem;
+    writing-mode: sideways-lr;
+    z-index: -4;
+  
+    user-select: none;
+    -moz-window-dragging: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+   }
+  
+  .boards-container {
+    position: relative;
+    top: -10%;
+    display:flex;
+    justify-content: space-around;
+  }
+  
+  .palm-container{
+    display: none;
+  }
+  
+  .palm{
+    display: none;
+  }
+  
+  #allyPlane{
+    display: none;
+  }
+  
+  .bluePlane{
+    display: none;
+
+  }
+  
+  #opponentPlane{
+    display: none;
+  }
+  
+  .redPlane{
+    display: none;
+  }
+  
+  #reset {
+    position: relative;
+    display: inline;
+    background-color: #0086b8; 
+    border: 6px solid #02187c;
+    border-radius: 12px;
+    color: white;
+    padding: 8px 24px;
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    letter-spacing: .1rem;
+    font-size: 3.4rem;
+    text-shadow: 6px 6px #02187c;
+    box-shadow: 2px 8px 12px black;
+    cursor: pointer;
+    margin-bottom: 10%;
+    margin-top: -4%;
+    z-index: -3;
+    left: -38%;
+  
+    user-select: none;
+    -moz-window-dragging: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  .grid-container {
+      position: relative;
+      z-index: -3;
+      display: grid;
+      grid-template-columns: repeat(11, 1fr);
+      grid-template-rows: repeat(11, 1fr);
+      width: 40%;
+      gap: 2px;
+      box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.322);
+  }
+  
+  @keyframes grid-containerUp{
+    0% {opacity: 1; z-index: -3;}
+    100% {opacity: 1; z-index: 0;}
+  }
+  
+  @keyframes grid-containerDown{
+    0% {opacity: 1; z-index: 0;}
+    100% {opacity: 1; z-index: -3;}
+  }
+  
+  .grid-item {
+      aspect-ratio: 1;
+      z-index: 4;
+  }
+  
+  
+  
+  /* My board */
+  #my-board>.grid-item.my-ship {
+    background-color: #001365;
+  }
+  
+  #my-board>.grid-item {
+      background-color: #0086b8;
+  }
+  
+  #my-board {
+      margin-top: 8%;
+      background-color: #02187c;
+      border: 3px solid #02187c;
+      position: relative;
+      left: 30%;
+  }
+  
+  
+  
+  /* Opponent board */
+  #opponent-board>.grid-item.missed {
+      background-color: #005388;
+  }
+  
+  #opponent-board>.grid-item.hit {
+    background-color: #b6190e;
+  }
+  
+  #opponent-board>.grid-item.destroy {
+    background-color: #F69907;
+  }
+  
+  #opponent-board>.grid-item {
+      background-color: #0086b8;
+  }
+  
+  #opponent-board {
+      background-color: #02187c;
+      border: 3px solid #02187c;
+      position: relative;
+      left: 30%;
+  }
+  
+
+  .upperPart{
+    display: grid;
+    margin: 2%;
+  }
+
+  #logo{
+    display: block;
+    margin-left: 90%;
+    margin-top: -10%;
+    width: 12%;
+    z-index: 2;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+  }
+  
+  .indicator{
+    background-color: #1e6b88;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    font-size: 1.4rem;
+    text-shadow: 2px 2px #02187c;
+  
+    user-select: none;
+    -moz-window-dragging: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+  }
+}

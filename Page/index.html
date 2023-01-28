@@ -1,0 +1,356 @@
+<html>
+  <head>
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+		<link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="lateralNavs">
+    </div>
+    <div class="lateralNavSX">
+      <p class="menuText" id="firstMenuTextSX" onclick="play()">Gioca</p>
+      <p class="menuText" id="friend-list">Lista-amici</p>
+      <p class="menuText" id="shop">Shop</p>
+      <p class="menuText" id="scoreboard">Classifica</p>
+      <p class="menuText" id="options">Opzioni</p>
+    </div>
+    <div class="lateralNavDX">
+      <p class="menuText" id="firstMenuTextDX">Cronologia mosse:</p>
+      <p class="menuText" id="history"></p>
+    </div>
+
+    <div class="upperPart">
+      <div class="menu">
+        <div class="bar1 changeBar1" onclick="openMenu()"></div>
+        <div class="bar2 changeBar2" onclick="openMenu()"></div>
+        <div class="bar3 changeBar3" onclick="openMenu()"></div>
+      </div>
+      <img id="logo" draggable="false" src="..\Assets\logo.png">
+    </div>
+
+    <div class="boards-container">
+      <div id="my-board" class="grid-container">
+        <!-- riga 0 -->
+        <div class="indicator"> </div> 
+        <div class="indicator"> A </div> 
+        <div class="indicator"> B </div> 
+        <div class="indicator"> C </div> 
+        <div class="indicator"> D </div> 
+        <div class="indicator"> E </div> 
+        <div class="indicator"> F </div>
+        <div class="indicator"> G </div> 
+        <div class="indicator"> H </div>
+        <div class="indicator"> I </div> 
+        <div class="indicator"> J </div>
+        <div class="indicator"> 1 </div> 
+
+        <!-- riga 1 -->
+        <div class="grid-item" data-row="0" data-col="0" onclick="log(0,0)"></div>
+        <div class="grid-item" data-row="0" data-col="1" onclick="log(0,1)"></div>
+        <div class="grid-item" data-row="0" data-col="2" onclick="log(0,2)"></div>
+        <div class="grid-item" data-row="0" data-col="3" onclick="log(0,3)"></div>
+        <div class="grid-item" data-row="0" data-col="4" onclick="log(0,4)"></div>
+        <div class="grid-item" data-row="0" data-col="5" onclick="log(0,5)"></div>
+        <div class="grid-item" data-row="0" data-col="6" onclick="log(0,6)"></div>
+        <div class="grid-item" data-row="0" data-col="7" onclick="log(0,7)"></div>
+        <div class="grid-item" data-row="0" data-col="8" onclick="log(0,8)"></div>
+        <div class="grid-item" data-row="0" data-col="9" onclick="log(0,9)"></div>
+
+        <!-- riga 2 -->
+        <div class="indicator"> 2 </div>
+        <div class="grid-item" data-row="1" data-col="0" onclick="log(1,0)"></div>
+        <div class="grid-item" data-row="1" data-col="1" onclick="log(1,1)"></div>
+        <div class="grid-item" data-row="1" data-col="2" onclick="log(1,2)"></div>
+        <div class="grid-item" data-row="1" data-col="3" onclick="log(1,3)"></div>
+        <div class="grid-item" data-row="1" data-col="4" onclick="log(1,4)"></div>
+        <div class="grid-item" data-row="1" data-col="5" onclick="log(1,5)"></div>
+        <div class="grid-item" data-row="1" data-col="6" onclick="log(1,6)"></div>
+        <div class="grid-item" data-row="1" data-col="7" onclick="log(1,7)"></div>
+        <div class="grid-item" data-row="1" data-col="8" onclick="log(1,8)"></div>
+        <div class="grid-item" data-row="1" data-col="9" onclick="log(1,9)"></div>
+
+        <!-- riga 3 -->
+        <div class="indicator"> 3 </div> 
+        <div class="grid-item" data-row="2" data-col="0" onclick="log(2,0)"></div>
+        <div class="grid-item" data-row="2" data-col="1" onclick="log(2,1)"></div>
+        <div class="grid-item" data-row="2" data-col="2" onclick="log(2,2)"></div>
+        <div class="grid-item" data-row="2" data-col="3" onclick="log(2,3)"></div>
+        <div class="grid-item" data-row="2" data-col="4" onclick="log(2,4)"></div>
+        <div class="grid-item" data-row="2" data-col="5" onclick="log(2,5)"></div>
+        <div class="grid-item" data-row="2" data-col="6" onclick="log(2,6)"></div>
+        <div class="grid-item" data-row="2" data-col="7" onclick="log(2,7)"></div>
+        <div class="grid-item" data-row="2" data-col="8" onclick="log(2,8)"></div>
+        <div class="grid-item" data-row="2" data-col="9" onclick="log(2,9)"></div>
+
+        <!-- riga 4 -->
+        <div class="indicator"> 4 </div> 
+        <div class="grid-item" data-row="3" data-col="0" onclick="log(3,0)"></div>
+        <div class="grid-item" data-row="3" data-col="1" onclick="log(3,1)"></div>
+        <div class="grid-item" data-row="3" data-col="2" onclick="log(3,2)"></div>
+        <div class="grid-item" data-row="3" data-col="3" onclick="log(3,3)"></div>
+        <div class="grid-item" data-row="3" data-col="4" onclick="log(3,4)"></div>
+        <div class="grid-item" data-row="3" data-col="5" onclick="log(3,5)"></div>
+        <div class="grid-item" data-row="3" data-col="6" onclick="log(3,6)"></div>
+        <div class="grid-item" data-row="3" data-col="7" onclick="log(3,7)"></div>
+        <div class="grid-item" data-row="3" data-col="8" onclick="log(3,8)"></div>
+        <div class="grid-item" data-row="3" data-col="9" onclick="log(3,9)"></div>
+
+        <!-- riga 5 -->
+        <div class="indicator"> 5 </div> 
+        <div class="grid-item" data-row="4" data-col="0" onclick="log(4,0)"></div>
+        <div class="grid-item" data-row="4" data-col="1" onclick="log(4,1)"></div>
+        <div class="grid-item" data-row="4" data-col="2" onclick="log(4,2)"></div>
+        <div class="grid-item" data-row="4" data-col="3" onclick="log(4,3)"></div>
+        <div class="grid-item" data-row="4" data-col="4" onclick="log(4,4)"></div>
+        <div class="grid-item" data-row="4" data-col="5" onclick="log(4,5)"></div>
+        <div class="grid-item" data-row="4" data-col="6" onclick="log(4,6)"></div>
+        <div class="grid-item" data-row="4" data-col="7" onclick="log(4,7)"></div>
+        <div class="grid-item" data-row="4" data-col="8" onclick="log(4,8)"></div>
+        <div class="grid-item" data-row="4" data-col="9" onclick="log(4,9)"></div>
+
+        <!-- riga 6 -->
+        <div class="indicator"> 6 </div> 
+        <div class="grid-item" data-row="5" data-col="0" onclick="log(5,0)"></div>
+        <div class="grid-item" data-row="5" data-col="1" onclick="log(5,1)"></div>
+        <div class="grid-item" data-row="5" data-col="2" onclick="log(5,2)"></div>
+        <div class="grid-item" data-row="5" data-col="3" onclick="log(5,3)"></div>
+        <div class="grid-item" data-row="5" data-col="4" onclick="log(5,4)"></div>
+        <div class="grid-item" data-row="5" data-col="5" onclick="log(5,5)"></div>
+        <div class="grid-item" data-row="5" data-col="6" onclick="log(5,6)"></div>
+        <div class="grid-item" data-row="5" data-col="7" onclick="log(5,7)"></div>
+        <div class="grid-item" data-row="5" data-col="8" onclick="log(5,8)"></div>
+        <div class="grid-item" data-row="5" data-col="9" onclick="log(5,9)"></div>
+
+        <!-- riga 7 -->
+        <div class="indicator"> 7 </div> 
+        <div class="grid-item" data-row="6" data-col="0" onclick="log(6,0)"></div>
+        <div class="grid-item" data-row="6" data-col="1" onclick="log(6,1)"></div>
+        <div class="grid-item" data-row="6" data-col="2" onclick="log(6,2)"></div>
+        <div class="grid-item" data-row="6" data-col="3" onclick="log(6,3)"></div>
+        <div class="grid-item" data-row="6" data-col="4" onclick="log(6,4)"></div>
+        <div class="grid-item" data-row="6" data-col="5" onclick="log(6,5)"></div>
+        <div class="grid-item" data-row="6" data-col="6" onclick="log(6,6)"></div>
+        <div class="grid-item" data-row="6" data-col="7" onclick="log(6,7)"></div>
+        <div class="grid-item" data-row="6" data-col="8" onclick="log(6,8)"></div>
+        <div class="grid-item" data-row="6" data-col="9" onclick="log(6,9)"></div>
+
+        <!-- riga 8 -->
+        <div class="indicator"> 8 </div> 
+        <div class="grid-item" data-row="7" data-col="0" onclick="log(7,0)"></div>
+        <div class="grid-item" data-row="7" data-col="1" onclick="log(7,1)"></div>
+        <div class="grid-item" data-row="7" data-col="2" onclick="log(7,2)"></div>
+        <div class="grid-item" data-row="7" data-col="3" onclick="log(7,3)"></div>
+        <div class="grid-item" data-row="7" data-col="4" onclick="log(7,4)"></div>
+        <div class="grid-item" data-row="7" data-col="5" onclick="log(7,5)"></div>
+        <div class="grid-item" data-row="7" data-col="6" onclick="log(7,6)"></div>
+        <div class="grid-item" data-row="7" data-col="7" onclick="log(7,7)"></div>
+        <div class="grid-item" data-row="7" data-col="8" onclick="log(7,8)"></div>
+        <div class="grid-item" data-row="7" data-col="9" onclick="log(7,9)"></div>
+
+        <!-- riga 9 -->
+        <div class="indicator"> 9 </div> 
+        <div class="grid-item" data-row="8" data-col="0" onclick="log(8,0)"></div>
+        <div class="grid-item" data-row="8" data-col="1" onclick="log(8,1)"></div>
+        <div class="grid-item" data-row="8" data-col="2" onclick="log(8,2)"></div>
+        <div class="grid-item" data-row="8" data-col="3" onclick="log(8,3)"></div>
+        <div class="grid-item" data-row="8" data-col="4" onclick="log(8,4)"></div>
+        <div class="grid-item" data-row="8" data-col="5" onclick="log(8,5)"></div>
+        <div class="grid-item" data-row="8" data-col="6" onclick="log(8,6)"></div>
+        <div class="grid-item" data-row="8" data-col="7" onclick="log(8,7)"></div>
+        <div class="grid-item" data-row="8" data-col="8" onclick="log(8,8)"></div>
+        <div class="grid-item" data-row="8" data-col="9" onclick="log(8,9)"></div>
+
+        <!-- riga 10 -->
+        <div class="indicator"> 10 </div> 
+        <div class="grid-item" data-row="9" data-col="0" onclick="log(9,0)"></div>
+        <div class="grid-item" data-row="9" data-col="1" onclick="log(9,1)"></div>
+        <div class="grid-item" data-row="9" data-col="2" onclick="log(9,2)"></div>
+        <div class="grid-item" data-row="9" data-col="3" onclick="log(9,3)"></div>
+        <div class="grid-item" data-row="9" data-col="4" onclick="log(9,4)"></div>
+        <div class="grid-item" data-row="9" data-col="5" onclick="log(9,5)"></div>
+        <div class="grid-item" data-row="9" data-col="6" onclick="log(9,6)"></div>
+        <div class="grid-item" data-row="9" data-col="7" onclick="log(9,7)"></div>
+        <div class="grid-item" data-row="9" data-col="8" onclick="log(9,8)"></div>
+        <div class="grid-item" data-row="9" data-col="9" onclick="log(9,9)"></div>
+      </div>
+
+      <div class="my-nickname">
+      </div>
+      
+        <!--timer-->
+        <div class="timer-container">
+          <p id="time"></p>
+        </div>  
+
+        <button id="reset" onclick="reset()">RESET</button>
+        
+      <div id="opponent-board" class="grid-container">
+        <!-- riga 0 -->
+        <div class="indicator"> </div> 
+        <div class="indicator"> A </div> 
+        <div class="indicator"> B </div> 
+        <div class="indicator"> C </div> 
+        <div class="indicator"> D </div> 
+        <div class="indicator"> E </div> 
+        <div class="indicator"> F </div> 
+        <div class="indicator"> G </div> 
+        <div class="indicator"> H </div>
+        <div class="indicator"> I </div> 
+        <div class="indicator"> J </div>
+        <div class="indicator"> 1 </div> 
+          
+        <!-- riga 1 -->
+        <div class="grid-item" data-row="0" data-col="0" onclick="log(0,0)"></div>
+        <div class="grid-item" data-row="0" data-col="1" onclick="log(0,1)"></div>
+        <div class="grid-item" data-row="0" data-col="2" onclick="log(0,2)"></div>
+        <div class="grid-item" data-row="0" data-col="3" onclick="log(0,3)"></div>
+        <div class="grid-item" data-row="0" data-col="4" onclick="log(0,4)"></div>
+        <div class="grid-item" data-row="0" data-col="5" onclick="log(0,5)"></div>
+        <div class="grid-item" data-row="0" data-col="6" onclick="log(0,6)"></div>
+        <div class="grid-item" data-row="0" data-col="7" onclick="log(0,7)"></div>
+        <div class="grid-item" data-row="0" data-col="8" onclick="log(0,8)"></div>
+        <div class="grid-item" data-row="0" data-col="9" onclick="log(0,9)"></div>
+
+        <!-- riga 2 -->
+        <div class="indicator"> 2 </div> 
+        <div class="grid-item" data-row="1" data-col="0" onclick="log(1,0)"></div>
+        <div class="grid-item" data-row="1" data-col="1" onclick="log(1,1)"></div>
+        <div class="grid-item" data-row="1" data-col="2" onclick="log(1,2)"></div>
+        <div class="grid-item" data-row="1" data-col="3" onclick="log(1,3)"></div>
+        <div class="grid-item" data-row="1" data-col="4" onclick="log(1,4)"></div>
+        <div class="grid-item" data-row="1" data-col="5" onclick="log(1,5)"></div>
+        <div class="grid-item" data-row="1" data-col="6" onclick="log(1,6)"></div>
+        <div class="grid-item" data-row="1" data-col="7" onclick="log(1,7)"></div>
+        <div class="grid-item" data-row="1" data-col="8" onclick="log(1,8)"></div>
+        <div class="grid-item" data-row="1" data-col="9" onclick="log(1,9)"></div>
+
+        <!-- riga 3 -->
+        <div class="indicator"> 3 </div> 
+        <div class="grid-item" data-row="2" data-col="0" onclick="log(2,0)"></div>
+        <div class="grid-item" data-row="2" data-col="1" onclick="log(2,1)"></div>
+        <div class="grid-item" data-row="2" data-col="2" onclick="log(2,2)"></div>
+        <div class="grid-item" data-row="2" data-col="3" onclick="log(2,3)"></div>
+        <div class="grid-item" data-row="2" data-col="4" onclick="log(2,4)"></div>
+        <div class="grid-item" data-row="2" data-col="5" onclick="log(2,5)"></div>
+        <div class="grid-item" data-row="2" data-col="6" onclick="log(2,6)"></div>
+        <div class="grid-item" data-row="2" data-col="7" onclick="log(2,7)"></div>
+        <div class="grid-item" data-row="2" data-col="8" onclick="log(2,8)"></div>
+        <div class="grid-item" data-row="2" data-col="9" onclick="log(2,9)"></div>
+
+        <!-- riga 4 -->
+        <div class="indicator"> 4 </div> 
+        <div class="grid-item" data-row="3" data-col="0" onclick="log(3,0)"></div>
+        <div class="grid-item" data-row="3" data-col="1" onclick="log(3,1)"></div>
+        <div class="grid-item" data-row="3" data-col="2" onclick="log(3,2)"></div>
+        <div class="grid-item" data-row="3" data-col="3" onclick="log(3,3)"></div>
+        <div class="grid-item" data-row="3" data-col="4" onclick="log(3,4)"></div>
+        <div class="grid-item" data-row="3" data-col="5" onclick="log(3,5)"></div>
+        <div class="grid-item" data-row="3" data-col="6" onclick="log(3,6)"></div>
+        <div class="grid-item" data-row="3" data-col="7" onclick="log(3,7)"></div>
+        <div class="grid-item" data-row="3" data-col="8" onclick="log(3,8)"></div>
+        <div class="grid-item" data-row="3" data-col="9" onclick="log(3,9)"></div>
+
+        <!-- riga 5 -->
+        <div class="indicator"> 5 </div> 
+        <div class="grid-item" data-row="4" data-col="0" onclick="log(4,0)"></div>
+        <div class="grid-item" data-row="4" data-col="1" onclick="log(4,1)"></div>
+        <div class="grid-item" data-row="4" data-col="2" onclick="log(4,2)"></div>
+        <div class="grid-item" data-row="4" data-col="3" onclick="log(4,3)"></div>
+        <div class="grid-item" data-row="4" data-col="4" onclick="log(4,4)"></div>
+        <div class="grid-item" data-row="4" data-col="5" onclick="log(4,5)"></div>
+        <div class="grid-item" data-row="4" data-col="6" onclick="log(4,6)"></div>
+        <div class="grid-item" data-row="4" data-col="7" onclick="log(4,7)"></div>
+        <div class="grid-item" data-row="4" data-col="8" onclick="log(4,8)"></div>
+        <div class="grid-item" data-row="4" data-col="9" onclick="log(4,9)"></div>
+
+        <!-- riga 6 -->
+        <div class="indicator"> 6 </div> 
+        <div class="grid-item" data-row="5" data-col="0" onclick="log(5,0)"></div>
+        <div class="grid-item" data-row="5" data-col="1" onclick="log(5,1)"></div>
+        <div class="grid-item" data-row="5" data-col="2" onclick="log(5,2)"></div>
+        <div class="grid-item" data-row="5" data-col="3" onclick="log(5,3)"></div>
+        <div class="grid-item" data-row="5" data-col="4" onclick="log(5,4)"></div>
+        <div class="grid-item" data-row="5" data-col="5" onclick="log(5,5)"></div>
+        <div class="grid-item" data-row="5" data-col="6" onclick="log(5,6)"></div>
+        <div class="grid-item" data-row="5" data-col="7" onclick="log(5,7)"></div>
+        <div class="grid-item" data-row="5" data-col="8" onclick="log(5,8)"></div>
+        <div class="grid-item" data-row="5" data-col="9" onclick="log(5,9)"></div>
+
+        <!-- riga 7 -->
+        <div class="indicator"> 7 </div>
+        <div class="grid-item" data-row="6" data-col="0" onclick="log(6,0)"></div>
+        <div class="grid-item" data-row="6" data-col="1" onclick="log(6,1)"></div>
+        <div class="grid-item" data-row="6" data-col="2" onclick="log(6,2)"></div>
+        <div class="grid-item" data-row="6" data-col="3" onclick="log(6,3)"></div>
+        <div class="grid-item" data-row="6" data-col="4" onclick="log(6,4)"></div>
+        <div class="grid-item" data-row="6" data-col="5" onclick="log(6,5)"></div>
+        <div class="grid-item" data-row="6" data-col="6" onclick="log(6,6)"></div>
+        <div class="grid-item" data-row="6" data-col="7" onclick="log(6,7)"></div>
+        <div class="grid-item" data-row="6" data-col="8" onclick="log(6,8)"></div>
+        <div class="grid-item" data-row="6" data-col="9" onclick="log(6,9)"></div>
+
+        <!-- riga 8 -->
+        <div class="indicator"> 8 </div> 
+        <div class="grid-item" data-row="7" data-col="0" onclick="log(7,0)"></div>
+        <div class="grid-item" data-row="7" data-col="1" onclick="log(7,1)"></div>
+        <div class="grid-item" data-row="7" data-col="2" onclick="log(7,2)"></div>
+        <div class="grid-item" data-row="7" data-col="3" onclick="log(7,3)"></div>
+        <div class="grid-item" data-row="7" data-col="4" onclick="log(7,4)"></div>
+        <div class="grid-item" data-row="7" data-col="5" onclick="log(7,5)"></div>
+        <div class="grid-item" data-row="7" data-col="6" onclick="log(7,6)"></div>
+        <div class="grid-item" data-row="7" data-col="7" onclick="log(7,7)"></div>
+        <div class="grid-item" data-row="7" data-col="8" onclick="log(7,8)"></div>
+        <div class="grid-item" data-row="7" data-col="9" onclick="log(7,9)"></div>
+
+        <!-- riga 9 -->
+        <div class="indicator"> 9 </div> 
+        <div class="grid-item" data-row="8" data-col="0" onclick="log(8,0)"></div>
+        <div class="grid-item" data-row="8" data-col="1" onclick="log(8,1)"></div>
+        <div class="grid-item" data-row="8" data-col="2" onclick="log(8,2)"></div>
+        <div class="grid-item" data-row="8" data-col="3" onclick="log(8,3)"></div>
+        <div class="grid-item" data-row="8" data-col="4" onclick="log(8,4)"></div>
+        <div class="grid-item" data-row="8" data-col="5" onclick="log(8,5)"></div>
+        <div class="grid-item" data-row="8" data-col="6" onclick="log(8,6)"></div>
+        <div class="grid-item" data-row="8" data-col="7" onclick="log(8,7)"></div>
+        <div class="grid-item" data-row="8" data-col="8" onclick="log(8,8)"></div>
+        <div class="grid-item" data-row="8" data-col="9" onclick="log(8,9)"></div>
+
+        <!-- riga 10 -->
+        <div class="indicator"> 10 </div> 
+        <div class="grid-item" data-row="9" data-col="0" onclick="log(9,0)"></div>
+        <div class="grid-item" data-row="9" data-col="1" onclick="log(9,1)"></div>
+        <div class="grid-item" data-row="9" data-col="2" onclick="log(9,2)"></div>
+        <div class="grid-item" data-row="9" data-col="3" onclick="log(9,3)"></div>
+        <div class="grid-item" data-row="9" data-col="4" onclick="log(9,4)"></div>
+        <div class="grid-item" data-row="9" data-col="5" onclick="log(9,5)"></div>
+        <div class="grid-item" data-row="9" data-col="6" onclick="log(9,6)"></div>
+        <div class="grid-item" data-row="9" data-col="7" onclick="log(9,7)"></div>
+        <div class="grid-item" data-row="9" data-col="8" onclick="log(9,8)"></div>
+        <div class="grid-item" data-row="9" data-col="9" onclick="log(9,9)"></div>
+      </div>
+
+      <div class="opponent-nickname">
+        Opponent#7462
+      </div>
+
+      </div>
+    </div>
+
+    <div class="palm-container">
+      <img class="palm" src="..\Assets\PalmaSX.gif">
+      <img class="palm" src="..\Assets\PalmaDX.gif">
+    </div>
+    
+    <img id="allyPlane" src="..\Assets\aereoBlu.gif">
+    <img id="opponentPlane" src="..\Assets\aereoRosso.gif">
+
+    <div class="playOption">
+      <p class="nameHelp">Ciao inserisci il tuo nome!</p>
+      <input type="text" class="userName" maxlength="12" placeholder="giocatore"></input>
+      <input type="button" class="confirmName" value="conferma" onclick="confirmName()"> </input>
+      <input type="checkbox" class="rememberUserName" id="rememberCheck"> </input>
+      <p class="remember">Ricordami</p>
+    </div>
+
+  </body>
+</html>
