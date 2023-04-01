@@ -1,0 +1,142 @@
+[
+    [
+        {
+            "row": 4,
+            "col": 1,
+            "hitted": false,
+            "shipNumber": 0
+        },
+        {
+            "row": 4,
+            "col": 2,
+            "hitted": false,
+            "shipNumber": 0
+        },
+        {
+            "row": 4,
+            "col": 3,
+            "hitted": false,
+            "shipNumber": 0
+        },
+        {
+            "row": 4,
+            "col": 4,
+            "hitted": false,
+            "shipNumber": 0
+        }
+    ],
+    [
+        {
+            "row": 6,
+            "col": 2,
+            "hitted": false,
+            "shipNumber": 1
+        },
+        {
+            "row": 6,
+            "col": 1,
+            "hitted": false,
+            "shipNumber": 1
+        },
+        {
+            "row": 6,
+            "col": 0,
+            "hitted": false,
+            "shipNumber": 1
+        }
+    ],
+    [
+        {
+            "row": 5,
+            "col": 8,
+            "hitted": false,
+            "shipNumber": 2
+        },
+        {
+            "row": 6,
+            "col": 8,
+            "hitted": false,
+            "shipNumber": 2
+        },
+        {
+            "row": 7,
+            "col": 8,
+            "hitted": false,
+            "shipNumber": 2
+        }
+    ],
+    [
+        {
+            "row": 2,
+            "col": 8,
+            "hitted": false,
+            "shipNumber": 3
+        },
+        {
+            "row": 2,
+            "col": 7,
+            "hitted": false,
+            "shipNumber": 3
+        }
+    ],
+    [
+        {
+            "row": 1,
+            "col": 4,
+            "hitted": false,
+            "shipNumber": 4
+        },
+        {
+            "row": 1,
+            "col": 5,
+            "hitted": false,
+            "shipNumber": 4
+        }
+    ],
+    [
+        {
+            "row": 8,
+            "col": 1,
+            "hitted": false,
+            "shipNumber": 5
+        },
+        {
+            "row": 8,
+            "col": 2,
+            "hitted": false,
+            "shipNumber": 5
+        }
+    ],
+    [
+        {
+            "row": 6,
+            "col": 5,
+            "hitted": false,
+            "shipNumber": 6
+        }
+    ],
+    [
+        {
+            "row": 0,
+            "col": 1,
+            "hitted": false,
+            "shipNumber": 7
+        }
+    ],
+    [
+        {
+            "row": 8,
+            "col": 4,
+            "hitted": false,
+            "shipNumber": 8
+        }
+    ],
+    [
+        {
+            "row": 8,
+            "col": 6,
+            "hitted": false,
+            "shipNumber": 9
+        }
+    ]
+]

@@ -67,7 +67,7 @@ let isShipPositionValid = function (ship) {
 };
 let generateTentativeShip = function(n, shipNumber) {
   let ship = [];
-  // gheenero casualmente la prima cella, ha un attributo hitted riconoscerà se la cella è stata colpita e porta con sé il numero identificatore
+  // genero casualmente la prima cella, ha un attributo hitted riconoscerà se la cella è stata colpita e porta con sé il numero identificatore
   ship[0] = { row: getRandom(9), col: getRandom(9), hitted: false, shipNumber: shipNumber};
   // scelgo una direzione a caso
   let direction = getRandom(4);
@@ -96,7 +96,6 @@ let generateShip = function (n, shipNumber) {
     alert(`DEV: something went wrong, too many iterations! More than ${max_iterations}`)
   }
 
-  console.log(JSON.stringify(ship));
   return ship;
 };
 
@@ -104,19 +103,19 @@ let generateShips = function () {
 
   console.log("generateShips");
   
-  ships[0] = generateShip(4, 0);
+  // ships[0] = generateShip(4, 0);
 
-  ships[1] = generateShip(3, 1);
-  ships[2] = generateShip(3, 2);
+  // ships[1] = generateShip(3, 1);
+  // ships[2] = generateShip(3, 2);
  
-  ships[3] = generateShip(2, 3);
-  ships[4] = generateShip(2, 4);
-  ships[5] = generateShip(2, 5);
+  // ships[3] = generateShip(2, 3);
+  // ships[4] = generateShip(2, 4);
+  // ships[5] = generateShip(2, 5);
 
-  ships[6] = generateShip(1, 6);
-  ships[7] = generateShip(1, 7);
-  ships[8] = generateShip(1, 8);
-  ships[9] = generateShip(1, 9);
+  // ships[6] = generateShip(1, 6);
+  // ships[7] = generateShip(1, 7);
+  // ships[8] = generateShip(1, 8);
+  // ships[9] = generateShip(1, 9);
   
   for (let ship of ships) {
     for (let x of ship) {
@@ -124,6 +123,7 @@ let generateShips = function () {
       x.shipNumber = ship[0].shipNumber; //se non lo faccio calcolerà solo la prima casella come nave
     }
   }
+
 };
 
 let log = function (row, col) {
@@ -184,24 +184,10 @@ let playOpponentBoard = function () {
         if(isShipDestroyed[x.shipNumber] == shipMaxHP[x.shipNumber]){
           destroyShip(x.shipNumber);
         }
-        console.log("la nave:"+x.shipNumber+" è stata colpita, ottieni "+isShipDestroyed[x.shipNumber]);
+        // console.log("la nave:"+x.shipNumber+" è stata colpita, ottieni "+isShipDestroyed[x.shipNumber]);
       } else {
         isShipDestroyed[x.shipNumber] = 0;
       }
-    }
-  }
-};
-
-let init = function () {
-  ships = [];
-  generateShips();
-  $("#my-board>.grid-item").on("click", playMyBoard);
-  $("#opponent-board>.grid-item").on("click", playOpponentBoard);
-
-  for (let ship of ships) {
-    for (let x of ship) {
-      // add class my-ship to my ships in my board
-      $(`#my-board > .grid-item[data-row=${x.row}][data-col=${x.col}]`).addClass("my-ship");
     }
   }
 };
@@ -329,5 +315,32 @@ let confirmName = function(){
   
 }
 
+let loadShips = function(dataJson) {
+  ships = dataJson;
+  console.log("ships loaded");
+
+  for (let ship of ships) {
+    for (let x of ship) {
+      // add class my-ship to my ships in my board
+      $(`#my-board > .grid-item[data-row=${x.row}][data-col=${x.col}]`).addClass("my-ship");
+    }
+  }
+
+  console.log(JSON.stringify(ships));
+}
+
+let onError = function(e) {
+  console.error(e);
+}
+
+let init = function () {
+
+  $.get("data.json").done(loadShips).fail(onError);
+  
+  $("#my-board>.grid-item").on("click", playMyBoard);
+  $("#opponent-board>.grid-item").on("click", playOpponentBoard);
+
+  
+};
 //
 $(document).ready(init);
