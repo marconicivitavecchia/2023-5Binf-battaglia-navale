@@ -29,6 +29,11 @@ body{
   box-shadow: 2px 8px 12px black;
   z-index: -4;
 
+  animation-duration: 1.4s;
+	animation-fill-mode: forwards;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+
   -webkit-animation-duration: 1.4s;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-animation-direction: alternate;
@@ -65,6 +70,11 @@ body{
   -ms-user-select: none;
   pointer-events: none;
 
+  animation-duration: 1.4s;
+	animation-fill-mode: forwards;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+
   -webkit-animation-duration: 1.4s;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-animation-direction: alternate;
@@ -100,6 +110,7 @@ body{
 .changeBar1{
   position: relative;
   z-index: 2;
+  transform: rotate(-45deg) translate(-20%, 120%);
   -webkit-transform: rotate(-45deg) translate(-20%, 120%);
   box-shadow: 5px 10px 8px;
 }
@@ -108,6 +119,8 @@ body{
   position: relative;
   background-color: #000000;
   filter: blur(4px);
+  filter: blur(4px);
+  transform: rotate(45deg) translate(8%, -30%);
   -webkit-filter: blur(4px);
   -webkit-transform: rotate(45deg) translate(8%, -30%);
   box-shadow: none;
@@ -117,6 +130,7 @@ body{
 .changeBar3{
   position: relative;
   z-index: 2;
+  transform: rotate(45deg) translate(-18%, -80%);
   -webkit-transform: rotate(45deg) translate(-18%, -80%);
   box-shadow: none;
 }
@@ -133,6 +147,10 @@ body{
 }
 
 .changeLateralNavs{
+  animation-name: lateralNavsChange;
+  animation-iteration-count: 1;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
   -webkit-animation-name: lateralNavsChange;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-duration: 3s;
@@ -140,6 +158,10 @@ body{
 }
 
 .changeLateralNavsReverse{
+  animation-name: lateralNavsChangeReverse;
+  animation-iteration-count: 1;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
   -webkit-animation-name: lateralNavsChangeReverse;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-duration: 3s;
@@ -188,6 +210,10 @@ body{
 }
 
 .changeLateralNavSX{
+  animation-name: lateralNavSXChange;
+  animation-iteration-count: 1;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
   -webkit-animation-name: lateralNavSXChange;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-duration: 3s;
@@ -196,6 +222,10 @@ body{
 }
 
 .changeLateralNavDX{
+  animation-name: lateralNavDXChange;
+  animation-iteration-count: 1;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
   -webkit-animation-name: lateralNavDXChange;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-duration: 3s;
@@ -203,6 +233,10 @@ body{
 }
 
 .changeLateralNavSXReverse{
+  animation-name: lateralNavSXChangeReverse;
+  animation-iteration-count: 1;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
   -webkit-animation-name: lateralNavSXChangeReverse;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-duration: 3s;
@@ -210,6 +244,10 @@ body{
 }
 
 .changeLateralNavDXReverse{
+  animation-name: lateralNavDXChangeReverse;
+  animation-iteration-count: 1;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
   -webkit-animation-name: lateralNavDXChangeReverse;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-duration: 3s;
@@ -333,6 +371,11 @@ body{
   gap: 4px;
   box-shadow: 2px 8px 12px black;
 
+  animation-duration: 1.6s;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+  animation-timing-function: cubic-bezier(1,0.80,0.50,1);
+  animation-iteration-count: 1;
   -webkit-animation-duration: 1.6s;
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-direction: normal;
@@ -451,6 +494,11 @@ body{
 }
 
 .confirmName:hover{
+  animation-name: confirmButton;
+  animation-duration: 400ms;
+	animation-fill-mode: forwards;
+	animation-direction: normal;
+	animation-iteration-count: 1;
   -webkit-animation-name: confirmButton;
   -webkit-animation-duration: 400ms;
 	-webkit-animation-fill-mode: forwards;
@@ -584,6 +632,15 @@ body{
 	position: absolute;
   z-index: 3;
 
+  transform:rotate(90deg);
+  animation-name: moveBluePlane;
+  animation-duration: 40s;
+	animation-fill-mode: forwards;
+	animation-direction: normal;
+	animation-timing-function: cubic-bezier(1,0.80,0.22,1);
+	animation-iteration-count: infinite;
+  animation-delay: 12s;
+
 	-webkit-transform:rotate(90deg);
   -webkit-animation-name: moveBluePlane;
   -webkit-animation-duration: 40s;
@@ -635,6 +692,15 @@ body{
 	position: absolute;
   z-index: 3;
 
+  
+  transform:rotate(-90deg);
+  animation-name: moveRedPlane;
+  animation-duration: 38s;
+	animation-fill-mode: forwards;
+	animation-direction: normal;
+	animation-timing-function: cubic-bezier(1,0.80,0.22,1);
+	animation-iteration-count: infinite;
+  animation-delay: 6s;
 	-webkit-transform:rotate(-90deg);
   -webkit-animation-name: moveRedPlane;
   -webkit-animation-duration: 38s;
@@ -821,6 +887,10 @@ body{
     box-shadow: 2px 8px 12px black;
     z-index: -4;
   
+    animation-duration: 1.4s;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
     -webkit-animation-duration: 1.4s;
     -webkit-animation-fill-mode: forwards;
     -webkit-animation-direction: alternate;
@@ -857,6 +927,10 @@ body{
     -ms-user-select: none;
     pointer-events: none;
   
+    animation-duration: 1.4s;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
     -webkit-animation-duration: 1.4s;
     -webkit-animation-fill-mode: forwards;
     -webkit-animation-direction: alternate;
@@ -892,6 +966,7 @@ body{
   .changeBar1{
     position: relative;
     z-index: 2;
+    transform: rotate(-45deg) translate(-30%, 360%);
     -webkit-transform: rotate(-45deg) translate(-30%, 360%);
     box-shadow: 5px 10px 8px;
   }
@@ -901,6 +976,7 @@ body{
     background-color: #000000;
     filter: blur(4px);
     -webkit-filter: blur(4px);
+    transform: rotate(45deg) translate(34%, 60%);
     -webkit-transform: rotate(45deg) translate(34%, 60%);
     box-shadow: none;
     z-index: 1;
@@ -909,6 +985,7 @@ body{
   .changeBar3{
     position: relative;
     z-index: 2;
+    transform: rotate(45deg) translate(14%, -20%);
     -webkit-transform: rotate(45deg) translate(14%, -20%);
     box-shadow: none;
   }
@@ -955,6 +1032,10 @@ body{
 
   
   .changeLateralNavSX{
+    animation-name: lateralNavSXChange;
+    animation-iteration-count: 1;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
     -webkit-animation-name: lateralNavSXChange;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-duration: 3s;
@@ -963,6 +1044,10 @@ body{
   }
   
   .changeLateralNavSXReverse{
+    animation-name: lateralNavSXChangeReverse;
+    animation-iteration-count: 1;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
     -webkit-animation-name: lateralNavSXChangeReverse;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-duration: 3s;
@@ -1029,6 +1114,11 @@ body{
     gap: 4px;
     box-shadow: 2px 8px 12px black;
   
+    animation-duration: 1.6s;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+    animation-timing-function: cubic-bezier(1,0.80,0.50,1);
+    animation-iteration-count: 1;
     -webkit-animation-duration: 1.6s;
     -webkit-animation-fill-mode: forwards;
     -webkit-animation-direction: normal;
@@ -1148,6 +1238,11 @@ body{
   }
   
   .confirmName:hover{
+    animation-name: confirmButton;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+    animation-iteration-count: 1;
     -webkit-animation-name: confirmButton;
     -webkit-animation-duration: 400ms;
     -webkit-animation-fill-mode: forwards;
@@ -1168,6 +1263,7 @@ body{
    left: 64%;
    width: 38%;
    height: 10%;
+   transform: rotate(90deg);
    -webkit-transform: rotate(90deg);
    background: #0086b8;
    border: #001365 solid 3px;
